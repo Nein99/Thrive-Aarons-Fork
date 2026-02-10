@@ -141,9 +141,11 @@ public class GameProperties : IArchivable
     ///     TODO: add some other species as well to the world to make it not as empty
     ///   </para>
     /// </remarks>
-    public static GameProperties StartNewMacroscopicGame(WorldGenerationSettings settings)
+    public static GameProperties StartNewMacroscopicGame(WorldGenerationSettings settings, bool freebuild = false)
     {
         var game = new GameProperties(settings);
+        
+        OxygenateWorld(game.GameWorld.Map);
 
         var playerSpecies = MakePlayerOrganellesMakeSenseForMulticellular(game);
 
@@ -152,6 +154,13 @@ public class GameProperties : IArchivable
         game.GameWorld.ChangeSpeciesToMacroscopic(earlySpecies);
 
         game.EnterPrototypes();
+        
+        if (freebuild)
+        {
+            game.EnterFreeBuild();
+            // game.GameWorld.GenerateRandomSpeciesForFreeBuild();
+            game.TutorialState.Enabled = false;
+        }
 
         return game;
     }

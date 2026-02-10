@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Godot;
 using Newtonsoft.Json;
@@ -362,43 +362,6 @@ public partial class MacroscopicStage : CreatureStageBase<MacroscopicCreature, D
         // Clear the underwater background
         // TODO: above water panorama backgrounds
         worldEnvironmentNode.Environment = null;
-
-        // Ground plane
-        var ground = new StaticBody3D
-        {
-            PhysicsMaterialOverride = new PhysicsMaterial
-            {
-                Friction = 1,
-                Bounce = 0.1f,
-                Absorbent = true,
-                Rough = true,
-            },
-        };
-
-        ground.AddChild(new CollisionShape3D
-        {
-            Shape = new WorldBoundaryShape3D
-            {
-                Plane = new Plane(new Vector3(0, 1, 0), 0),
-            },
-        });
-
-        ground.AddChild(new MeshInstance3D
-        {
-            Mesh = new PlaneMesh
-            {
-                Size = new Vector2(400, 400),
-                Material = new StandardMaterial3D
-                {
-                    AlbedoTexture = GD.Load<Texture2D>("res://assets/textures/environment/Terrain_01_Albedo.png"),
-                    NormalEnabled = true,
-                    NormalTexture = GD.Load<Texture2D>("res://assets/textures/environment/Terrain_01_Normals.png"),
-                    Uv1Scale = new Vector3(42, 42, 42),
-                },
-            },
-        });
-
-        rootOfDynamicallySpawned.AddChild(ground);
 
         // A not super familiar (different than underwater) rock strewn around for reference
         var rockResource = SimulationParameters.Instance.GetWorldResource("rock");

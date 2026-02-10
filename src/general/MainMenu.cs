@@ -89,6 +89,9 @@ public partial class MainMenu : NodeWithInput
 
     [Export]
     private Button multicellularFreebuildButton = null!;
+    
+    [Export]
+    private Button macroscopicFreebuildButton = null!;
 
     [Export]
     private Button autoEvoExploringButton = null!;
@@ -843,6 +846,30 @@ public partial class MainMenu : NodeWithInput
             SceneManager.Instance.SwitchToScene(editor);
         }, false);
     }
+    
+    private void MacroscopicFreebuildEditorPressed()
+        {
+            GUICommon.Instance.PlayButtonPressSound();
+    
+            // Disable the button to prevent it being executed again.
+            // mascroscopicFreebuildButton.Disabled = true;
+    
+            TransitionManager.Instance.AddSequence(ScreenFade.FadeType.FadeOut, 0.1f, () =>
+            {
+                OnEnteringGame(false);
+    
+                // Instantiate a new editor scene
+                var editor = (MacroscopicEditor)SceneManager.Instance
+                    .LoadScene(MainGameState.MacroscopicEditor).Instantiate();
+    
+                // Start freebuild game
+                editor.CurrentGame = GameProperties.StartNewMacroscopicGame(new WorldGenerationSettings(), true);
+                AchievementsManager.ReportEnteredFreebuild();
+    
+                // Switch to the editor scene
+                SceneManager.Instance.SwitchToScene(editor);
+            }, false);
+        }
 
     private void OnAutoEvoExploringPressed()
     {

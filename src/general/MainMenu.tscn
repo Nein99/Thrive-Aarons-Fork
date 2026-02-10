@@ -295,6 +295,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainers/Menus/VBoxContainer" unique_id=1422078714 groups=["MenuItem"]]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -371,7 +372,6 @@ layout_mode = 2
 NodeToGiveFocusTo = NodePath("../NewGame")
 
 [node name="Tools" type="VBoxContainer" parent="MenuContainers/Menus/VBoxContainer" unique_id=1628190532 groups=["MenuItem"]]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -393,6 +393,13 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
 text = "MULTICELLULAR_FREEBUILD_EDITOR"
+
+[node name="FreebuildMacroscopicEditor" type="Button" parent="MenuContainers/Menus/VBoxContainer/Tools" unique_id=1631279309]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+text = "MACROSCOPIC_FREEBUILD_EDITOR"
 
 [node name="AutoEvoExploring" type="Button" parent="MenuContainers/Menus/VBoxContainer/Tools" unique_id=1426703126]
 custom_minimum_size = Vector2(250, 40)
@@ -840,8 +847,6 @@ layout_mode = 1
 [node name="SaveManagerGUI" parent="." unique_id=1090587139 instance=ExtResource("2")]
 visible = false
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="NewGameSettings" parent="." unique_id=1042098657 instance=ExtResource("18")]
 visible = false
@@ -984,6 +989,7 @@ ShowCloseButton = false
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/MainMenu/Quit" to="." method="QuitPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/FreebuildMicrobeEditor" to="." method="FreebuildEditorPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/FreebuildMulticellularEditor" to="." method="MulticellularFreebuildEditorPressed"]
+[connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/FreebuildMacroscopicEditor" to="." method="MacroscopicFreebuildEditorPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/AutoEvoExploring" to="." method="OnAutoEvoExploringPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/PlanetCustomizer" to="." method="PlanetCustomizerPressed"]
 [connection signal="pressed" from="MenuContainers/Menus/VBoxContainer/Tools/Benchmarks" to="." method="BenchmarksPressed"]
