@@ -38,10 +38,10 @@ public partial class MacroscopicMetaballDisplayer : MultiMeshInstance3D, IMetaba
         // {
         //     Shader = GD.Load<Shader>("res://shaders/Metaball.shader"),
         // },
-        material = new StandardMaterial3D
-        {
-            VertexColorUseAsAlbedo = true,
-        };
+        // material = new StandardMaterial3D
+        // {
+        //     VertexColorUseAsAlbedo = true,
+        // };
 
         ApplyAlpha();
 

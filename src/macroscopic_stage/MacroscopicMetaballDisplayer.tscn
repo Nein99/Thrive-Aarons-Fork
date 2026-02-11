@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://dagq5aexbmybf"]
 
 [ext_resource type="Script" uid="uid://bsq36gyv7ort1" path="res://src/macroscopic_stage/MacroscopicMetaballDisplayer.cs" id="1"]
+[ext_resource type="Shader" uid="uid://dopai3rpkqfb8" path="res://shaders/Metaball.gdshader" id="1_qff1e"]
+[ext_resource type="Texture2D" uid="uid://cuaou6m07rri7" path="res://assets/textures/DoubleMembrane.png" id="2_42uuc"]
+[ext_resource type="Texture2D" uid="uid://2lmqutwx7vd8" path="res://assets/textures/DoubleMembraneDamaged.png" id="3_fvy7o"]
+[ext_resource type="Texture2D" uid="uid://bbtak541l51yy" path="res://assets/textures/DoubleMembrane_normal.png" id="4_xh25o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mu7a"]
+render_priority = 0
+shader = ExtResource("1_qff1e")
+shader_parameter/wigglyNess = 0.3
+shader_parameter/movementWigglyNess = 1.0
+shader_parameter/albedoTexture = ExtResource("2_42uuc")
+shader_parameter/damagedTexture = ExtResource("3_fvy7o")
+shader_parameter/normalTexture = ExtResource("4_xh25o")
+shader_parameter/dissolveValue = 0.0
+shader_parameter/healthFraction = 1.0
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="MacroscopicMetaballDisplayer" type="MultiMeshInstance3D" unique_id=1297900871]
+material_override = SubResource("ShaderMaterial_7mu7a")
 script = ExtResource("1")
