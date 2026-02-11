@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://3l05bqc3adot"]
 
 [ext_resource type="Texture2D" uid="uid://ccd7geklqgvfv" path="res://assets/textures/environment/Terrain_01_Normals.png" id="2_2qpvk"]
-[ext_resource type="Texture2D" uid="uid://bguijfqnuki3m" path="res://assets/textures/environment/Terrain_01_Albedo.png" id="3_pvmub"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st4qg"]
-albedo_texture = ExtResource("3_pvmub")
-normal_enabled = true
+albedo_color = Color(0.58, 0.4694133, 0.32479998, 1)
 normal_texture = ExtResource("2_2qpvk")
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.34

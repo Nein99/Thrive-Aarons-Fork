@@ -143,6 +143,8 @@ public class GameProperties : IArchivable
     /// </remarks>
     public static GameProperties StartNewMacroscopicGame(WorldGenerationSettings settings, bool freebuild = false)
     {
+        settings.Origin = WorldGenerationSettings.LifeOrigin.Pond;
+        
         var game = new GameProperties(settings);
         
         OxygenateWorld(game.GameWorld.Map);
