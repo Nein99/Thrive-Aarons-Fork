@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://3l05bqc3adot"]
+
+[ext_resource type="Texture2D" uid="uid://ccd7geklqgvfv" path="res://assets/textures/environment/Terrain_01_Normals.png" id="2_2qpvk"]
+[ext_resource type="Texture2D" uid="uid://bguijfqnuki3m" path="res://assets/textures/environment/Terrain_01_Albedo.png" id="3_pvmub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st4qg"]
+albedo_texture = ExtResource("3_pvmub")
+normal_enabled = true
+normal_texture = ExtResource("2_2qpvk")
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.34
+proximity_fade_distance = 52.19
+distance_fade_min_distance = 10.0
+distance_fade_max_distance = 20.0
+
+[node name="BasicChunk" type="MeshInstance3D" unique_id=1704510242]
+material_override = SubResource("StandardMaterial3D_st4qg")

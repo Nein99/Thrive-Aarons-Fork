@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cite5aoy417hh"]
+
+[ext_resource type="Script" uid="uid://dh8b2as7sykpo" path="res://src/godot_asset_library/3d_smooth_terrain/world.gd" id="1_m56r5"]
+
+[node name="map" type="Node3D" unique_id=829006720]
+script = ExtResource("1_m56r5")
