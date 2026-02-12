@@ -7,7 +7,7 @@ var chunk_size = Vector3(64, 32, 64)
 var unload_distance := 3
 var load_distance := 3
 
-@export var chunkScene := preload("res://src/godot_asset_library/3d_smooth_terrain/basic_chunk.tscn")
+@export var chunkScene := preload("res://addons/3d_smooth_terrain/basic_chunk.tscn")
 @onready var player := get_tree().get_first_node_in_group("player")
 
 func _ready():
